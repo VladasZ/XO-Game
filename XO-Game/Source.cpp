@@ -18,7 +18,9 @@ char currentMove = HUMAN_MOVE;
 char a[3][3] = { EMPTY, EMPTY, EMPTY,
 EMPTY, EMPTY, EMPTY,
 EMPTY, EMPTY, EMPTY };
+char *p_a = &a[0][0];
 int gameStat = GO_ON;
+
 
 void main();
 void newGame();
@@ -47,7 +49,7 @@ void startGame(){
 
 void display(){
 	system("cls");
-	for (int line = 0; line < 3; line++){
+	for (int line = 2; line > -1; line--){
 		for (int column = 0; column < 3; column++){
 			cout << a[line][column];
 		}
@@ -94,7 +96,7 @@ void humanMove(){
 	do{
 		cout << endl << "You turn" << endl;
 		cin >> x;
-		cin >> y;
+		//cin >> y;
 
 		// Начать новую игру не закончив текущую игру
 		/*
@@ -112,9 +114,9 @@ void humanMove(){
 		}
 		*/
 
-	} while (a[x - 1][y - 1] != EMPTY);
+	} while (*(p_a + x - 1) != EMPTY);
 
-	a[x - 1][y - 1] = HUMAN_MOVE;
+	*(p_a + x - 1) = HUMAN_MOVE;
 
 	moveCount++;
 
