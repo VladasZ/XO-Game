@@ -28,19 +28,19 @@ void newGame();
 void startGame(){
 
 
-	cout << "First move? Y/N" << endl;
+	cout << "First move? +/-" << endl;
 
 
-	while (YN != 'y' && YN != 'n'){
+	while (YN != '+' && YN != '-'){
 
 		cin >> YN;
 
-		if (YN == 'y')
+		if (YN == '+')
 			currentMove = HUMAN_MOVE;
-		if (YN == 'n')
+		if (YN == '-')
 			currentMove = BOT_MOVE;
 		else
-			cout << "only Y or N!" << endl;
+			cout << "only + or - !" << endl;
 	}
 
 	YN = ' ';
@@ -59,13 +59,13 @@ void display(){
 
 void newGame(){
 	cout << endl;
-	cout << "Play again?? Y/N" << endl;
+	cout << "Play again?? +/-" << endl;
 
-	while (YN != 'y' && YN != 'n'){
+	while (YN != '+' && YN != '-'){
 
 		cin >> YN;
 
-		if (YN == 'y'){
+		if (YN == '+'){
 
 			for (int line = 0; line < 3; line++){
 				for (int column = 0; column < 3; column++){
@@ -80,7 +80,7 @@ void newGame(){
 		}
 
 
-		if (YN == 'n')
+		if (YN == '-')
 			exit(0);
 
 		else
